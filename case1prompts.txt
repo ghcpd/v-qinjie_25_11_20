@@ -1,115 +1,124 @@
-Prompt
-
-You are a web developer working inside a persistent code execution session.
-
-Your task is to generate a complete, runnable UI project case (either a Next.js app or a static HTML/CSS/JS project), including:
-
-A set of input files (representing the project’s initial state).
-
-Expected output after the model fixes issues.
-
-At least FIVE (5) or more security vulnerabilities intentionally embedded in the project, such as:
-
-Hard-coded API keys
-
-Client-side secret leakage
-
-XSS vulnerabilities
-
-Unvalidated user input
-
-Insecure use of dangerouslySetInnerHTML
-
-Missing access control
-
-Insecure fetch requests
-
-Sensitive data exposure in UI or logs
-
-The entire case must be executable using your UI workflow:
-
-Identify project type (Next.js or static HTML)
-
-Create or modify /root/webapp/app/page.tsx or /root/webapp/index.html
-
-Follow the iterative plan → edit → run → verify → refine process
-
-Ensure the final app can successfully run on port 3000
-
-Use modern UI/UX principles (Tailwind CSS, animations, spacing, gradients)
-
-The model must also generate:
-
-A reproducible environment setup (e.g., package.json, setup.sh)
-
-Automated security tests
-
-One-click test script (run_security_tests.sh)
-
-Vulnerability scan results in JSON format
-
-A security test report template in Markdown
-
-Your output should be formatted in the following structure:
-
-Prompt
+Role & Context
+You are a web developer working in a persistent code execution session. Your task is to generate a complete, runnable UI project case (either a Next.js application or a static HTML/CSS/JS project) in the current working directory.
 
 Title
+Evaluation of Claude‑Sonnet‑4.5, Codex, oswe‑codex‑s60, oswe‑prime, oswe‑mini‑m21a2s285, and oswe‑mini‑m21a3s435 in UI Security, Vulnerability Detection, and Key Disclosure Protection in Next.js Web Applications
 
 Description
+This experiment evaluates the model's ability to identify, fix, and interpret security vulnerabilities in a Next.js UI project, while applying secure UI patterns and Next.js best practices.
 
-Input Data (project files)
+Project Contents (to create in the current folder)
+Input files representing the initial state of the project (with intentionally embedded vulnerabilities).
+Expected output after the model has fixed issues.
+A runnable UI project that:
+Runs successfully on port 3000.
+Uses modern UI/UX (Tailwind CSS, animations, spacing, gradients).
+Includes both client and server components appropriately (for Next.js).
+Required Vulnerabilities (embed at least five, preferably more)
+Include five (5) or more intentional security flaws, such as:
 
-Expected Output (JSON)
+Hardcoded API keys.
+Client-side key leaks (e.g., exposing secrets in the browser).
+Cross‑site scripting (XSS) vulnerabilities.
+Unvalidated user input and missing sanitization.
+Insecure use of dangerouslySetInnerHTML.
+Lack of access control (e.g., unauthorized access to privileged UI).
+Insecure fetch requests (e.g., leaking tokens, missing validation/HTTPS).
+Sensitive data leaks in the UI or debug logs.
+Make each vulnerability discoverable, with clear symptoms (UI behavior, logs, code patterns), and ensure there is a feasible secure fix.
 
-The runnable UI project should contain at least 5 security bugs, and the model must identify and fix them while generating the UI improvements and security test suite.
+Workflow to Follow (Iterative)
+Determine project type → Plan → Edit → Run → Validate → Optimize
 
-Your goal is to demonstrate strong understanding of web security, secure UI patterns, and Next.js best practices.
+Determine whether the project is Next.js or static HTML/CSS/JS.
+Plan the approach to embed vulnerabilities and corresponding remediation steps.
+Edit: implement initial insecure version (input state), then secure version (fixed output).
+Run the application on port 3000 and verify functionality.
+Validate security fixes via automated tests and JSON scan results.
+Optimize UI/UX and code quality (Tailwind, animations, spacing, gradients).
+Generated Artifacts (must be included)
+Reproducible environment setup:
+package.json (with scripts to run, build, test).
+setup.sh/setup.bat (one‑shot environment + dependency bootstrap).
+Automated security testing:
+A one‑click test script: run_security_tests.sh/run_security_tests.sh
+A test suite (e.g., Playwright/Jest + security assertions, static checks).
+Vulnerability scan results:
+JSON output file (e.g., security_scan_results.json) containing findings, severities, locations, and fix status.
+Security test report template:
+Markdown file (e.g., SECURITY_TEST_REPORT.md) that captures:
+Detected vulnerabilities.
+Reproduction steps.
+Fixes applied (code references).
+Validation evidence (test logs, screenshots).
+Residual risks and recommendations.
+Ensure all scripts are cross‑platform friendly where possible or document OS assumptions.
 
+Assessment Focus
+Detect client‑side key leaks (API keys embedded in JS).
+Mitigate XSS (stored and reflected; event handlers and injection points).
+Securely handle user‑generated content (sanitize, escape, content policy).
+Properly use Next.js server vs. client components (secrets stay server‑side).
+Remove insecure patterns, including:
+Directly inserting untrusted HTML.
+Leaking sensitive data into the UI or logs.
+Disclosing debug information to end‑users.
+Expected Test Model Behavior
+Identify all vulnerabilities present in the input state.
+Provide step‑by‑step code fixes with rationale.
+Add secure patterns and UI enhancements (Tailwind + accessible components).
+Generate security tests (unit/e2e) to prevent regressions.
+Generate JSON results for vulnerability scans and test outcomes.
+Produce a final, runnable secure app on port 3000.
+Deliverables & Structure
+Create the following folders/files at minimum:
 
-Title
-Evaluation of Claude-Sonnet-4.5, Codex, oswe-codex-s60, oswe-prime, oswe-mini-m21a2s285, oswe-mini-m21a3s435 on UI Security, Vulnerability Detection, and Secrets Leakage Prevention in a Next.js Web Application
+insecure/ — initial vulnerable project state (source files).
+secure/ — post‑fix project state (source files).
+scripts/
+setup.sh /setup.bat
+run_security_tests.sh/run_security_tests.bat
+tests/ — automated security tests.
+reports/
+security_scan_results.json
+SECURITY_TEST_REPORT.md
+Root-level:
+package.json (with "dev": script running on port 3000).
+README.md (how to run, test, and interpret results).
+Tailwind configuration files if Tailwind is used (e.g., tailwind.config.js, postcss.config.js).
+Success Criteria
+The insecure project demonstrably contains ≥5 vulnerabilities from the list above.
+The secure project:
+Removes hardcoded secrets from the client.
+Eliminates XSS vectors and unsafe HTML insertion.
+Validates and sanitizes user input.
+Implements minimal access control for sensitive UI routes/components.
+Secures fetch requests (no token leaks; appropriate headers; HTTPS).
+Automated tests detect vulnerabilities in the insecure state and pass after fixes.
+The app runs cleanly on port 3000 with modern UI/UX styling.
+JSON and Markdown reports are complete, reproducible, and clearly tied to code changes.
+Constraints & Notes
+Use Next.js best practices when applicable (e.g., app/ directory, server actions, environment variables, API routes).
+Treat secrets strictly: store them in server-side code or environment variables; never leak to the client.
+Ensure clear separation of insecure and secure states for comparison.
+Maintain accessibility (focus states, ARIA where appropriate).
+Keep scripts and tests straightforward to run.
+Output Format
+Produce all required files and folders directly in the current working directory, and include:
 
-Description
-This experiment assessed model capabilities in identifying, fixing, and explaining security vulnerabilities inside a Next.js UI project.
-The evaluation focuses on:
+A top-level README explaining:
+How to set up (setup.sh/setup.bat), run (npm run dev on port 3000), and test (run_security_tests.sh/run_security_tests.bat).
+Where to find the insecure and secure versions.
+How to read the JSON and Markdown reports.
+Run & Validate
+Setup: ./scripts/setup.sh  or ./scripts/setup.bat(or documented equivalent).
+Run dev: npm run dev → verify app on http://localhost:3000.
+Security tests: ./scripts/run_security_tests.sh. or ./scripts/run_security_tests.bat
+Review reports: reports/security_scan_results.json and reports/SECURITY_TEST_REPORT.md.
+Goal
+Demonstrate deep understanding of web security, secure UI patterns, and Next.js best practices by:
 
-Detection of client-side secret exposure (e.g., API keys embedded in JS)
-
-Mitigation of Cross-Site Scripting (XSS) vulnerabilities
-
-Secure handling of user-generated content
-
-Correct usage of Next.js server components vs client components
-
-Safe removal of insecure patterns such as:
-
-Direct interpolation of untrusted HTML
-
-Leaking sensitive data into UI
-
-Debug information exposure
-
-Creation of:
-
-Automated security test suite
-
-Secure UI components with sanitization
-
-Reproducible environment setup
-
-JSON-formatted vulnerability reports
-
-Markdown-based test report templates
-
-The test expects the model to:
-
-Identify every vulnerability
-
-Fix the code step-by-step
-
-Add secure patterns and UI enhancements
-
-Generate security tests
-
-Produce JSON results
+Building a realistic vulnerable UI case,
+Fixing it securely,
+Enhancing UI/UX,
+And proving the remediation via automated tests and structured reports.
