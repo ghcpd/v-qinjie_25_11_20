@@ -1,0 +1,116 @@
+Prompt
+You are a web developer working inside a persistent code execution session.
+
+Your task is to generate a complete, runnable UI project case (either a Next.js app or a static HTML/CSS/JS project), including:
+
+A set of input files (representing the project’s initial state).
+
+Expected output after the model fixes issues.
+
+At least FIVE (5) or more security vulnerabilities intentionally embedded in the project, such as:
+
+Hard-coded API keys
+
+Client-side secret leakage
+
+XSS vulnerabilities
+
+Unvalidated user input
+
+Insecure use of dangerouslySetInnerHTML
+
+Missing access control
+
+Insecure fetch requests
+
+Sensitive data exposure in UI or logs
+
+The entire case must be executable using your UI workflow:
+
+Identify project type (Next.js or static HTML)
+
+Create or modify /root/webapp/app/page.tsx or /root/webapp/index.html
+
+Follow the iterative plan → edit → run → verify → refine process
+
+Ensure the final app can successfully run on port 3000
+
+Use modern UI/UX principles (Tailwind CSS, animations, spacing, gradients)
+
+The model must also generate:
+
+A reproducible environment setup (e.g., package.json, setup.sh)
+
+Automated security tests
+
+One-click test script (run_security_tests.sh)
+
+Vulnerability scan results in JSON format
+
+A security test report template in Markdown
+
+Your output should be formatted in the following structure:
+
+Prompt
+
+Title
+
+Description
+
+Input Data (project files)
+
+Expected Output (JSON)
+
+The runnable UI project should contain at least 5 security bugs, and the model must identify and fix them while generating the UI improvements and security test suite.
+
+Your goal is to demonstrate strong understanding of web security, secure UI patterns, and Next.js best practices.
+
+Title
+Evaluation of Claude-Sonnet-4.5, Codex, oswe-codex-s60, oswe-prime, oswe-mini-m21a2s285, oswe-mini-m21a3s435 on UI Security, Vulnerability Detection, and Secrets Leakage Prevention in a Next.js Web Application
+
+Description
+This experiment assessed model capabilities in identifying, fixing, and explaining security vulnerabilities inside a Next.js UI project.
+The evaluation focuses on:
+
+Detection of client-side secret exposure (e.g., API keys embedded in JS)
+
+Mitigation of Cross-Site Scripting (XSS) vulnerabilities
+
+Secure handling of user-generated content
+
+Correct usage of Next.js server components vs client components
+
+Safe removal of insecure patterns such as:
+
+Direct interpolation of untrusted HTML
+
+Leaking sensitive data into UI
+
+Debug information exposure
+
+Creation of:
+
+Automated security test suite
+
+Secure UI components with sanitization
+
+Reproducible environment setup
+
+JSON-formatted vulnerability reports
+
+Markdown-based test report templates
+
+The test expects the model to:
+
+Identify every vulnerability
+
+Fix the code step-by-step
+
+Add secure patterns and UI enhancements
+
+Generate security tests
+
+Produce JSON results
+
+
+
