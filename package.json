@@ -1,0 +1,14 @@
+{
+  "name": "nextjs-security-eval",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd secure && npm run dev",
+    "setup": "scripts/setup.sh",
+    "test-security": "scripts/run_security_tests.sh"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "license": "MIT"
+}

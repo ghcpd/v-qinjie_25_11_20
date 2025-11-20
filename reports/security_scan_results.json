@@ -1,0 +1,12 @@
+{
+  "generated": "2025-11-20T00:00:00.000Z",
+  "insecure": [
+    { "file": "insecure/pages/index.js", "pattern": "hardcoded-client-key", "severity": "high", "description": "Hardcoded API key in client bundle" },
+    { "file": "insecure/components/CommentBox.js", "pattern": "dangerouslySetInnerHTML", "severity": "high", "description": "Usage of dangerouslySetInnerHTML" },
+    { "file": "insecure/pages/index.js", "pattern": "console-secret", "severity": "medium", "description": "Sensitive data logged to console" },
+    { "file": "insecure/pages/index.js", "pattern": "http-fetch-token", "severity": "medium", "description": "Insecure HTTP fetch or token in URL" },
+    { "file": "insecure/pages/admin.js", "pattern": "no-auth-admin", "severity": "high", "description": "Admin page lacks access control" },
+    { "file": "insecure/pages/api/submit.js", "pattern": "unsanitized-input", "severity": "high", "description": "Unvalidated or unsanitized user input" }
+  ],
+  "secure": []
+}
