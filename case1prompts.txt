@@ -1,4 +1,5 @@
 Prompt
+
 You are a web developer working inside a persistent code execution session.
 
 Your task is to generate a complete, runnable UI project case (either a Next.js app or a static HTML/CSS/JS project), including:
@@ -65,6 +66,7 @@ The runnable UI project should contain at least 5 security bugs, and the model m
 
 Your goal is to demonstrate strong understanding of web security, secure UI patterns, and Next.js best practices.
 
+
 Title
 Evaluation of Claude-Sonnet-4.5, Codex, oswe-codex-s60, oswe-prime, oswe-mini-m21a2s285, oswe-mini-m21a3s435 on UI Security, Vulnerability Detection, and Secrets Leakage Prevention in a Next.js Web Application
 
@@ -111,6 +113,3 @@ Add secure patterns and UI enhancements
 Generate security tests
 
 Produce JSON results
-
-
-
