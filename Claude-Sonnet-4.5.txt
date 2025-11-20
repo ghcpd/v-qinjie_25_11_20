@@ -14,7 +14,7 @@ SCORE_WEIGHTS = {
 
 SCORE_REASON:
 
-"Vulnerability_Detection": "15/155", # all issues detected
+"Vulnerability_Detection": "15/15", # all issues detected
 "Debugging_And_Testing": "0.5", # still 6 issues not fixed
 "Debugging_And_Testing", # auto run setup and test script
 "Documentation_And_Comments": "0.6" # document is clear,complated and detailed
