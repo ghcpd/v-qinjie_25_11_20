@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server'
 // VULNERABILITY 12: No rate limiting
 
 const sensitiveData = {
-  apiKey: 'sk_live_51HardcodedApiKey123456789',
+  apiKey: '',
   databaseUrl: 'postgresql://admin:SuperSecret123@db.example.com:5432/production',
   stripeKey: 'sk_test_51Stripe_Secret_Key_12345',
   users: [

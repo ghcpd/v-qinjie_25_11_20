@@ -30,7 +30,7 @@
       "line": 8,
       "type": "API Key",
       "severity": "CRITICAL",
-      "evidence": "sk_live_51HardcodedApiKey123456789",
+      "evidence": "",
       "description": "API Key found in source code"
     },
     {
@@ -54,7 +54,7 @@
       "line": 7,
       "type": "API Key",
       "severity": "CRITICAL",
-      "evidence": "sk_live_51HardcodedApiKey123456789",
+      "evidence": "",
       "description": "API Key found in source code"
     },
     {
