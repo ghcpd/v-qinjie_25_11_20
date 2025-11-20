@@ -1,0 +1,17 @@
+{
+  "insecure": [
+    {"file":"insecure/app/page.js","type":"Hardcoded API Key","severity":"HIGH","detail":"HARD_CODED_API_KEY variable present in client code"},
+    {"file":"insecure/app/page.js","type":"DOM Injection","severity":"HIGH","detail":"Usage of innerHTML, possible XSS"},
+    {"file":"insecure/app/api/echo/route.js","type":"Secrets in logs","severity":"HIGH","detail":"API key logged to console and returned in response"},
+    {"file":"insecure/app/page.js","type":"Sensitive UI secret","severity":"HIGH","detail":"Admin secret displayed in UI without authorization"},
+    {"file":"insecure/app/page.js","type":"Token in URL","severity":"MEDIUM","detail":"API key being sent in URL query parameter"}
+  ],
+  "secure": [
+    {"file":"secure/app/api/echo/route.js","type":"Sanitization","severity":"INFO","detail":"Input is sanitized on server-side"},
+    {"file":"secure/app/admin/page.js","type":"Auth","severity":"INFO","detail":"Admin requires auth cookie; secrets are redacted"}
+  ],
+  "summary": {
+    "insecureFindings": 5,
+    "secureFindings": 2
+  }
+}
