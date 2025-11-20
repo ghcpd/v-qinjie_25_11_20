@@ -1,0 +1,75 @@
+{
+  "generated": "2025-11-20T07:52:45.191Z",
+  "findings": [
+    {
+      "target": "insecure",
+      "file": "insecure\\pages\\admin.js",
+      "pattern": "debug-logs",
+      "severity": "low",
+      "description": "Debug logs or alerts that leak info to UI."
+    },
+    {
+      "target": "insecure",
+      "file": "insecure\\pages\\admin.js",
+      "pattern": "open-admin",
+      "severity": "medium",
+      "description": "Admin route present; verify access control."
+    },
+    {
+      "target": "insecure",
+      "file": "insecure\\pages\\api\\secret.js",
+      "pattern": "hardcoded-key",
+      "severity": "high",
+      "description": "Hard-coded keys or secrets in source."
+    },
+    {
+      "target": "insecure",
+      "file": "insecure\\pages\\index.js",
+      "pattern": "client-leak",
+      "severity": "high",
+      "description": "Secrets exposed to window or public env var."
+    },
+    {
+      "target": "insecure",
+      "file": "insecure\\pages\\index.js",
+      "pattern": "xss-danger",
+      "severity": "high",
+      "description": "Dangerous HTML insertion without sanitization."
+    },
+    {
+      "target": "insecure",
+      "file": "insecure\\pages\\index.js",
+      "pattern": "http-fetch",
+      "severity": "medium",
+      "description": "Insecure HTTP fetch request detected."
+    },
+    {
+      "target": "insecure",
+      "file": "insecure\\pages\\index.js",
+      "pattern": "debug-logs",
+      "severity": "low",
+      "description": "Debug logs or alerts that leak info to UI."
+    },
+    {
+      "target": "secure",
+      "file": "secure\\pages\\admin.js",
+      "pattern": "client-leak",
+      "severity": "high",
+      "description": "Secrets exposed to window or public env var."
+    },
+    {
+      "target": "secure",
+      "file": "secure\\pages\\admin.js",
+      "pattern": "open-admin",
+      "severity": "medium",
+      "description": "Admin route present; verify access control."
+    },
+    {
+      "target": "secure",
+      "file": "secure\\pages\\index.js",
+      "pattern": "debug-logs",
+      "severity": "low",
+      "description": "Debug logs or alerts that leak info to UI."
+    }
+  ]
+}
