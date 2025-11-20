@@ -1,0 +1,38 @@
+{
+  "name": "nextjs-security-evaluation",
+  "version": "1.0.0",
+  "description": "Security vulnerability detection and remediation evaluation for Next.js applications",
+  "scripts": {
+    "dev": "next dev",
+    "dev:insecure": "cd insecure && next dev",
+    "dev:secure": "cd secure && next dev",
+    "build": "next build",
+    "build:insecure": "cd insecure && next build",
+    "build:secure": "cd secure && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "test:security": "node scripts/run_security_tests.js",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "dompurify": "^3.0.6",
+    "isomorphic-dompurify": "^2.9.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "jest": "^29.7.0",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3"
+  }
+}
