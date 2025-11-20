@@ -1,0 +1,41 @@
+SCORE = {
+"Vulnerability_Detection": "3/3",
+"Vulnerability_Fix": "2/3",
+"Debugging_And_Testing": "0.8",
+"Documentation_And_Comments": "0.9"
+}
+
+SCORE_WEIGHTS = {
+    'Vulnerability_Detection': 40,
+    'Vulnerability_Fix': 40,
+    'Debugging_And_Testing': 10,
+    'Documentation_And_Comments': 10,
+}
+
+SCORE_REASON:
+
+"Vulnerability_Detection": "3/3", # all issues detect
+"Vulnerability_Fix": "2/3",# still 1 issues not fixed
+"Debugging_And_Testing": "0.8", # not auto run 
+"Documentation_And_Comments": "0.9" # document is clear and comelated
+
+
+
+Implemented a full Next.js security lab with insecure + secure snapshots, automated testing hooks, and reporting assets.
+
+Key Updates
+
+Built the secure UI surface that stitches together the hero, metrics grid, payload sandbox, secure fetch, and access-control explainer so the final project runs from npm run dev on port 3000 (app/page.jsx (line 1)).
+The payload sandbox now sanitizes every keystroke with DOMPurify before rendering via dangerouslySetInnerHTML, eliminating the XSS vector showcased in the insecure snapshot (components/LiveThreatPanel.jsx (line 1)).
+Secure fetch demo + API enforce tenant headers, mask server-side tokens, and avoid leaking secrets in query strings or UI (components/SecureFetchDemo.jsx (line 1), app/api/secure-metrics/route.js (line 1)).
+Analyst console is guarded entirely server-side using HttpOnly cookies so privileged UI is hidden from guests (app/(protected)/analyst/page.jsx (line 1)).
+Documented the intentionally vulnerable baseline—with hardcoded keys, HTTP fetches, unsanitized HTML, and client-only role spoofing—and mirrored the hardened version inside secure/ for easy diffing (insecure/app/page.jsx (line 1), insecure/lib/fetcher.js (line 1), secure/app/page.jsx (line 1)).
+Automated checks cover both states: Node’s test runner asserts insecure fingerprints remain detectable and that secure mitigations stay in place; the scan script rewrites the JSON findings consumed by reports (tests/security.test.js (line 1), tests/security-scan.js (line 1), reports/security_scan_results.json (line 1), scripts/run_security_tests.sh (line 1)).
+Added onboarding + evidence docs so the workflow is reproducible (README.md (line 1), reports/SECURITY_TEST_REPORT.md (line 1)) and provided setup scripts for Bash/Windows (scripts/setup.sh (line 1), scripts/setup.bat (line 1)).
+Verification
+
+Could not execute npm run test/npm run scan because the environment lacks a node binary; once Node 18+ is installed, run ./scripts/setup.sh, ./scripts/run_security_tests.sh, and npm run dev to validate locally.
+Next Steps
+
+Install Node 18+ and run ./scripts/setup.sh followed by npm run dev to view the secure UI on http://localhost:3000.
+Execute ./scripts/run_security_tests.sh to regenerate the JSON findings and confirm the automated assertions pass end-to-end.
