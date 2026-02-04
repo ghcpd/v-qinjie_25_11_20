@@ -1,0 +1,191 @@
+{
+  "timestamp": "2025-11-20T09:07:05.858Z",
+  "summary": {
+    "insecureApp": {
+      "totalFindings": 15,
+      "critical": 7,
+      "high": 8,
+      "medium": 0,
+      "low": 0
+    },
+    "secureApp": {
+      "totalFindings": 6,
+      "critical": 3,
+      "high": 3,
+      "medium": 0,
+      "low": 0
+    }
+  },
+  "insecureFindings": [
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/admin/page.tsx",
+      "line": 1,
+      "type": "Missing Authorization",
+      "severity": "CRITICAL",
+      "evidence": "Admin page lacks authorization",
+      "description": "Privileged page accessible without authentication"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/api/data/route.ts",
+      "line": 8,
+      "type": "API Key",
+      "severity": "CRITICAL",
+      "evidence": "",
+      "description": "API Key found in source code"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/api/data/route.ts",
+      "line": 1,
+      "type": "Missing Authentication",
+      "severity": "CRITICAL",
+      "evidence": "API route lacks authentication checks",
+      "description": "API endpoint does not verify user authentication"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/api/data/route.ts",
+      "line": 33,
+      "type": "SQL Injection",
+      "severity": "CRITICAL",
+      "evidence": "const sqlQuery = `SELECT * FROM users WHERE name = '${query}'`",
+      "description": "Potential SQL injection vulnerability due to string concatenation"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 7,
+      "type": "API Key",
+      "severity": "CRITICAL",
+      "evidence": "",
+      "description": "API Key found in source code"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 8,
+      "type": "Hardcoded Password",
+      "severity": "HIGH",
+      "evidence": "PASSWORD = 'MySecretPassword123!'",
+      "description": "Hardcoded Password found in source code"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 7,
+      "type": "API Key",
+      "severity": "CRITICAL",
+      "evidence": "API_KEY = 'sk_live_51HardcodedApiKey123456789'",
+      "description": "API Key found in source code"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 9,
+      "type": "Secret",
+      "severity": "HIGH",
+      "evidence": "SECRET = 'super_secret_jwt_token_12345'",
+      "description": "Secret found in source code"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 33,
+      "type": "XSS Vulnerability",
+      "severity": "HIGH",
+      "evidence": "// VULNERABILITY 4: dangerouslySetInnerHTML without sanitization",
+      "description": "Unsafe use of dangerouslySetInnerHTML without sanitization"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 36,
+      "type": "XSS Vulnerability",
+      "severity": "HIGH",
+      "evidence": "return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />",
+      "description": "Unsafe use of dangerouslySetInnerHTML without sanitization"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 118,
+      "type": "XSS Vulnerability",
+      "severity": "HIGH",
+      "evidence": "dangerouslySetInnerHTML={{ __html: comment }}",
+      "description": "Unsafe use of dangerouslySetInnerHTML without sanitization"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 124,
+      "type": "XSS Vulnerability",
+      "severity": "HIGH",
+      "evidence": "{/* HTML Content Section - dangerouslySetInnerHTML */}",
+      "description": "Unsafe use of dangerouslySetInnerHTML without sanitization"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 132,
+      "type": "XSS Vulnerability",
+      "severity": "HIGH",
+      "evidence": "placeholder=\"Try: <img src=x onerror=alert('dangerouslySetInnerHTML')>\"",
+      "description": "Unsafe use of dangerouslySetInnerHTML without sanitization"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 21,
+      "type": "XSS Vulnerability",
+      "severity": "HIGH",
+      "evidence": "resultsDiv.innerHTML = `<p>Search results for: ${searchTerm}</p>`",
+      "description": "Direct assignment to innerHTML without sanitization"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/insecure/app/page.tsx",
+      "line": 48,
+      "type": "Code Injection",
+      "severity": "CRITICAL",
+      "evidence": "eval(event.target.getAttribute('data-action'))",
+      "description": "Use of eval() enables arbitrary code execution"
+    }
+  ],
+  "secureFindings": [
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/secure/app/admin/AdminPanel.tsx",
+      "line": 1,
+      "type": "Missing Authorization",
+      "severity": "CRITICAL",
+      "evidence": "Admin page lacks authorization",
+      "description": "Privileged page accessible without authentication"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/secure/app/page.tsx",
+      "line": 37,
+      "type": "XSS Vulnerability",
+      "severity": "HIGH",
+      "evidence": "// FIX 4: Sanitize HTML content before rendering with dangerouslySetInnerHTML",
+      "description": "Unsafe use of dangerouslySetInnerHTML without sanitization"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/secure/app/page.tsx",
+      "line": 44,
+      "type": "XSS Vulnerability",
+      "severity": "HIGH",
+      "evidence": "return <div dangerouslySetInnerHTML={{ __html: sanitized }} />",
+      "description": "Unsafe use of dangerouslySetInnerHTML without sanitization"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/secure/app/page.tsx",
+      "line": 139,
+      "type": "XSS Vulnerability",
+      "severity": "HIGH",
+      "evidence": "dangerouslySetInnerHTML={{ __html: comment }}",
+      "description": "Unsafe use of dangerouslySetInnerHTML without sanitization"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/secure/app/page.tsx",
+      "line": 52,
+      "type": "Code Injection",
+      "severity": "CRITICAL",
+      "evidence": "// FIX 6: Safe event handler - no eval()",
+      "description": "Use of eval() enables arbitrary code execution"
+    },
+    {
+      "file": "C:/GenAI/Bug_Bash/25_11_20/Claude-Sonnet-4.5/v-qinjie_25_11_20/secure/app/page.tsx",
+      "line": 173,
+      "type": "Code Injection",
+      "severity": "CRITICAL",
+      "evidence": "This button uses proper React event handling - no eval()",
+      "description": "Use of eval() enables arbitrary code execution"
+    }
+  ]
+}
